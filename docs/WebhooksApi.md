@@ -257,7 +257,7 @@ end
 
 api_instance = Pinwheel::WebhooksApi.new
 pinwheel_version = '2023-11-22' # String | Version identifier specifying how the Pinwheel API should behave. See the Change Management page for more information.
-webhook_create_v20230418 = Pinwheel::WebhookCreateV20230418.new({url: 'url_example', status: 'active', enabled_events: ['account.monitoring_status.updated'], version: '2023-11-22'}) # WebhookCreateV20230418 | 
+webhook_create_v20230418 = Pinwheel::WebhookCreateV20230418.new({url: 'url_example', status: 'active', enabled_events: ['direct_deposit_allocations.added'], version: '2023-11-22'}) # WebhookCreateV20230418 | 
 
 begin
   # Create Webhook

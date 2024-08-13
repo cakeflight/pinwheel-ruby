@@ -261,7 +261,7 @@ api_instance = Pinwheel::EmployersAndPlatformsApi.new
 q = 'q_example' # String | Search query on the employer/platform name.
 pinwheel_version = '2023-11-22' # String | Version identifier specifying how the Pinwheel API should behave. See the Change Management page for more information.
 opts = {
-  supported_jobs: ['direct_deposit_switch'], # Array<String> | Filter on supported jobs. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
+  supported_jobs: ['income'], # Array<String> | Filter on supported jobs. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
   response_types: ['employer'], # Array<String> | Filter on response type. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
   amount_supported: true, # Boolean | Filter on amount_supported. If true, results that support setting a specific dollar amount for direct deposit switches will be returned. If false, results that support setting a specific dollar amount for direct deposit switches will be excluded.
   platform_type: TODO, # String | If included, filters results by the platform `type`. Platforms are either `payroll` or `time_and_attendance`. Most platforms are `payroll`. Payroll platforms support operations such as updating direct deposit allocation settings. Time & Attendance platforms contain data around shifts and hours worked, but do not support payroll operations.

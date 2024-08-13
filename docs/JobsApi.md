@@ -33,7 +33,7 @@ pinwheel_version = '2023-11-22' # String | Version identifier specifying how the
 opts = {
   link_token_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | UUID of the link token triggering the job.
   account_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | UUID of the payroll account.
-  job_types: ['direct_deposit_switch'], # Array<String> | List of job types. May be expanded to include new enum values (see our Change Management policy).
+  job_types: ['income'], # Array<String> | List of job types. May be expanded to include new enum values (see our Change Management policy).
   outcome: TODO, # String | The outcome of the job.
   limit: 56, # Integer | The maximum number of results to return.
   cursor: 'cursor_example', # String | Cursor for the page you want to retrieve.
