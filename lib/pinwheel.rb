@@ -143,20 +143,7 @@ Pinwheel.autoload :WebhookObjResponse, "pinwheel/models/webhook_obj_response"
 Pinwheel.autoload :WebhookUpdate, "pinwheel/models/webhook_update"
 
 # APIs
-Pinwheel.autoload :APIKeysApi, "pinwheel/api/api_keys_api"
-Pinwheel.autoload :AccountsApi, "pinwheel/api/accounts_api"
-Pinwheel.autoload :CompanyConnectApi, "pinwheel/api/company_connect_api"
-Pinwheel.autoload :DirectDepositAllocationsApi, "pinwheel/api/direct_deposit_allocations_api"
-Pinwheel.autoload :EarningsStreamApi, "pinwheel/api/earnings_stream_api"
-Pinwheel.autoload :EmployersAndPlatformsApi, "pinwheel/api/employers_and_platforms_api"
-Pinwheel.autoload :EndUsersApi, "pinwheel/api/end_users_api"
-Pinwheel.autoload :IncomeAndEmploymentApi, "pinwheel/api/income_and_employment_api"
-Pinwheel.autoload :JobsApi, "pinwheel/api/jobs_api"
-Pinwheel.autoload :LinkTokensApi, "pinwheel/api/link_tokens_api"
-Pinwheel.autoload :SandboxApi, "pinwheel/api/sandbox_api"
-Pinwheel.autoload :TaxFormsApi, "pinwheel/api/tax_forms_api"
-Pinwheel.autoload :VerificationReportsApi, "pinwheel/api/verification_reports_api"
-Pinwheel.autoload :WebhooksApi, "pinwheel/api/webhooks_api"
+Pinwheel.autoload :PinwheelApi, "pinwheel/api/pinwheel_api"
 
 module Pinwheel
   class << self

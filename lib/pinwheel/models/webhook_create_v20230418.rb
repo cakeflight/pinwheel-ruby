@@ -150,7 +150,7 @@ module Pinwheel
       return false if @enabled_events.nil?
       return false if @enabled_events.length < 1
       return false if @version.nil?
-      version_validator = EnumAttributeValidator.new("String", ["2023-11-22", "2023-07-18", "2022-09-09", "2023-04-18"])
+      version_validator = EnumAttributeValidator.new("String", ["2023-04-18", "2022-09-09", "2023-11-22", "2023-07-18"])
       return false unless version_validator.valid?(@version)
       true
     end
@@ -168,7 +168,7 @@ module Pinwheel
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] version Object to be assigned
     def version=(version)
-      validator = EnumAttributeValidator.new("String", ["2023-11-22", "2023-07-18", "2022-09-09", "2023-04-18"])
+      validator = EnumAttributeValidator.new("String", ["2023-04-18", "2022-09-09", "2023-11-22", "2023-07-18"])
       unless validator.valid?(version)
         fail ArgumentError, "invalid value for \"version\", must be one of #{validator.allowable_values}."
       end
@@ -207,15 +207,15 @@ module Pinwheel
       transformed_hash = {}
       openapi_types.each_pair do |key, type|
         if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = nil
+          transformed_hash[key.to_s] = nil
         elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[attribute_map[key]].is_a?(Array)
-            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+            transformed_hash[key.to_s] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
           end
         elsif !attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+          transformed_hash[key.to_s] = _deserialize(type, attributes[attribute_map[key]])
         end
       end
       new(transformed_hash)

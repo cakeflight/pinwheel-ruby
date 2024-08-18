@@ -186,11 +186,11 @@ module Pinwheel
       warn "[DEPRECATED] the `valid?` method is obsolete"
       return false if @id.nil?
       return false if @name.nil?
-      name_validator = EnumAttributeValidator.new("String", ["income", "tax_forms", "paystubs", "direct_deposit_payment", "employment", "shifts", "identity", "direct_deposit_allocations", "direct_deposit_switch"])
+      name_validator = EnumAttributeValidator.new("String", ["tax_forms", "identity", "direct_deposit_allocations", "direct_deposit_switch", "employment", "direct_deposit_payment", "income", "paystubs", "shifts"])
       return false unless name_validator.valid?(@name)
       return false if @timestamp.nil?
       return false if @outcome.nil?
-      outcome_validator = EnumAttributeValidator.new("String", ["pending", "error", "success"])
+      outcome_validator = EnumAttributeValidator.new("String", ["success", "pending", "error"])
       return false unless outcome_validator.valid?(@outcome)
       return false if @link_token_id.nil?
       true
@@ -199,7 +199,7 @@ module Pinwheel
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] name Object to be assigned
     def name=(name)
-      validator = EnumAttributeValidator.new("String", ["income", "tax_forms", "paystubs", "direct_deposit_payment", "employment", "shifts", "identity", "direct_deposit_allocations", "direct_deposit_switch"])
+      validator = EnumAttributeValidator.new("String", ["tax_forms", "identity", "direct_deposit_allocations", "direct_deposit_switch", "employment", "direct_deposit_payment", "income", "paystubs", "shifts"])
       unless validator.valid?(name)
         fail ArgumentError, "invalid value for \"name\", must be one of #{validator.allowable_values}."
       end
@@ -209,7 +209,7 @@ module Pinwheel
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] outcome Object to be assigned
     def outcome=(outcome)
-      validator = EnumAttributeValidator.new("String", ["pending", "error", "success"])
+      validator = EnumAttributeValidator.new("String", ["success", "pending", "error"])
       unless validator.valid?(outcome)
         fail ArgumentError, "invalid value for \"outcome\", must be one of #{validator.allowable_values}."
       end
@@ -253,15 +253,15 @@ module Pinwheel
       transformed_hash = {}
       openapi_types.each_pair do |key, type|
         if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = nil
+          transformed_hash[key.to_s] = nil
         elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[attribute_map[key]].is_a?(Array)
-            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+            transformed_hash[key.to_s] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
           end
         elsif !attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+          transformed_hash[key.to_s] = _deserialize(type, attributes[attribute_map[key]])
         end
       end
       new(transformed_hash)

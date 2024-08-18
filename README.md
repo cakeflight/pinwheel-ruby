@@ -58,7 +58,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'pinwheel'
 
-api_instance = Pinwheel::APIKeysApi.new
+api_instance = Pinwheel::PinwheelApi.new
 pinwheel_version = '2023-11-22' # String | Version identifier specifying how the Pinwheel API should behave. See the Change Management page for more information.
 create_admin_token_request = Pinwheel::CreateAdminTokenRequest.new({username: 'username_example', password: 'password_example'}) # CreateAdminTokenRequest | 
 
@@ -67,7 +67,7 @@ begin
   result = api_instance.auth_v1_admin_token_post(pinwheel_version, create_admin_token_request)
   p result
 rescue Pinwheel::ApiError => e
-  puts "Exception when calling APIKeysApi->auth_v1_admin_token_post: #{e}"
+  puts "Exception when calling PinwheelApi->auth_v1_admin_token_post: #{e}"
 end
 
 ```
@@ -78,51 +78,50 @@ All URIs are relative to *https://api.getpinwheel.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Pinwheel::APIKeysApi* | [**auth_v1_admin_token_post**](docs/APIKeysApi.md#auth_v1_admin_token_post) | **POST** /admin/token | Admin API Authentication
-*Pinwheel::APIKeysApi* | [**create_key_v1_admin_api_keys_post**](docs/APIKeysApi.md#create_key_v1_admin_api_keys_post) | **POST** /admin/api_keys | Create an API Key
-*Pinwheel::APIKeysApi* | [**list_keys_v1_admin_api_keys_get**](docs/APIKeysApi.md#list_keys_v1_admin_api_keys_get) | **GET** /admin/api_keys | List API Keys
-*Pinwheel::APIKeysApi* | [**revoke_key_v1_admin_api_keys_api_key_revoke_post**](docs/APIKeysApi.md#revoke_key_v1_admin_api_keys_api_key_revoke_post) | **POST** /admin/api_keys/{api_key}/revoke | Revoke an API Key
-*Pinwheel::AccountsApi* | [**disable_monitoring_v1_accounts_account_id_disable_monitoring_post**](docs/AccountsApi.md#disable_monitoring_v1_accounts_account_id_disable_monitoring_post) | **POST** /accounts/{account_id}/disable_monitoring | Disable monitoring for account
-*Pinwheel::AccountsApi* | [**disconnect_v1_accounts_account_id_disconnect_post**](docs/AccountsApi.md#disconnect_v1_accounts_account_id_disconnect_post) | **POST** /accounts/{account_id}/disconnect | Disconnect an account
-*Pinwheel::AccountsApi* | [**get_account_v1_accounts_account_id_get**](docs/AccountsApi.md#get_account_v1_accounts_account_id_get) | **GET** /accounts/{account_id} | Get Account
-*Pinwheel::AccountsApi* | [**list_accounts_v1_accounts_get**](docs/AccountsApi.md#list_accounts_v1_accounts_get) | **GET** /accounts | List Accounts
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_census_get**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_census_get) | **GET** /company_connections/{company_connection_id}/census | List Employees
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_employments_get**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_employments_get) | **GET** /company_connections/{company_connection_id}/employments | List Employments Data
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_get**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_get) | **GET** /company_connections/{company_connection_id} | Get Company Connection
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_incomes_get**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_incomes_get) | **GET** /company_connections/{company_connection_id}/incomes | List Employee Incomes
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get) | **GET** /company_connections/{company_connection_id}/paystubs/{employee_external_id} | List Employee Paystubs
-*Pinwheel::CompanyConnectApi* | [**get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get_0**](docs/CompanyConnectApi.md#get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get_0) | **GET** /company_connections/{company_connection_id}/paystubs/{employee_external_id} | List Employee Paystubs
-*Pinwheel::CompanyConnectApi* | [**list_v1_company_connections_get**](docs/CompanyConnectApi.md#list_v1_company_connections_get) | **GET** /company_connections | List Company Connections
-*Pinwheel::CompanyConnectApi* | [**post_v1_company_connect_link_tokens_post**](docs/CompanyConnectApi.md#post_v1_company_connect_link_tokens_post) | **POST** /company_connect/link_tokens | Create Link Token
-*Pinwheel::CompanyConnectApi* | [**post_v1_company_connections_post**](docs/CompanyConnectApi.md#post_v1_company_connections_post) | **POST** /company_connections | Create Company Connection
-*Pinwheel::DirectDepositAllocationsApi* | [**get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get**](docs/DirectDepositAllocationsApi.md#get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get) | **GET** /accounts/{account_id}/direct_deposit_allocations | Get Direct Deposit Allocations
-*Pinwheel::EarningsStreamApi* | [**get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get**](docs/EarningsStreamApi.md#get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get) | **GET** /end_users/{end_user_id}/earnings_stream/payouts | Get Earnings Stream Payouts
-*Pinwheel::EmployersAndPlatformsApi* | [**get_employer_v1_employers_employer_id_get**](docs/EmployersAndPlatformsApi.md#get_employer_v1_employers_employer_id_get) | **GET** /employers/{employer_id} | Get Employer
-*Pinwheel::EmployersAndPlatformsApi* | [**get_platform_v1_platforms_platform_id_get**](docs/EmployersAndPlatformsApi.md#get_platform_v1_platforms_platform_id_get) | **GET** /platforms/{platform_id} | Get Platform
-*Pinwheel::EmployersAndPlatformsApi* | [**get_v1_employers_get**](docs/EmployersAndPlatformsApi.md#get_v1_employers_get) | **GET** /employers | List Employers
-*Pinwheel::EmployersAndPlatformsApi* | [**get_v1_search_get**](docs/EmployersAndPlatformsApi.md#get_v1_search_get) | **GET** /search | Search Employers and Platforms
-*Pinwheel::EmployersAndPlatformsApi* | [**list_platforms_v1_platforms_get**](docs/EmployersAndPlatformsApi.md#list_platforms_v1_platforms_get) | **GET** /platforms | List Platforms
-*Pinwheel::EndUsersApi* | [**get_end_user_accounts_v1_end_users_end_user_id_accounts_get**](docs/EndUsersApi.md#get_end_user_accounts_v1_end_users_end_user_id_accounts_get) | **GET** /end_users/{end_user_id}/accounts | Get all end user accounts
-*Pinwheel::EndUsersApi* | [**get_end_user_document_v1_end_users_end_user_id_documents_document_id_get**](docs/EndUsersApi.md#get_end_user_document_v1_end_users_end_user_id_documents_document_id_get) | **GET** /end_users/{end_user_id}/documents/{document_id} | Get Document
-*Pinwheel::EndUsersApi* | [**get_end_user_documents_v1_end_users_end_user_id_documents_get**](docs/EndUsersApi.md#get_end_user_documents_v1_end_users_end_user_id_documents_get) | **GET** /end_users/{end_user_id}/documents | List Documents
-*Pinwheel::IncomeAndEmploymentApi* | [**get_employment_v1_accounts_account_id_employment_get**](docs/IncomeAndEmploymentApi.md#get_employment_v1_accounts_account_id_employment_get) | **GET** /accounts/{account_id}/employment | Get Employment
-*Pinwheel::IncomeAndEmploymentApi* | [**get_identity_v1_accounts_account_id_identity_get**](docs/IncomeAndEmploymentApi.md#get_identity_v1_accounts_account_id_identity_get) | **GET** /accounts/{account_id}/identity | Get Identity
-*Pinwheel::IncomeAndEmploymentApi* | [**get_income_v1_accounts_account_id_income_get**](docs/IncomeAndEmploymentApi.md#get_income_v1_accounts_account_id_income_get) | **GET** /accounts/{account_id}/income | Get Income
-*Pinwheel::IncomeAndEmploymentApi* | [**get_paystub_v1_accounts_account_id_paystubs_paystub_id_get**](docs/IncomeAndEmploymentApi.md#get_paystub_v1_accounts_account_id_paystubs_paystub_id_get) | **GET** /accounts/{account_id}/paystubs/{paystub_id} | Get Paystub
-*Pinwheel::IncomeAndEmploymentApi* | [**list_paystubs_v1_accounts_account_id_paystubs_get**](docs/IncomeAndEmploymentApi.md#list_paystubs_v1_accounts_account_id_paystubs_get) | **GET** /accounts/{account_id}/paystubs | List Paystubs
-*Pinwheel::IncomeAndEmploymentApi* | [**list_shifts_v1_accounts_account_id_shifts_get**](docs/IncomeAndEmploymentApi.md#list_shifts_v1_accounts_account_id_shifts_get) | **GET** /accounts/{account_id}/shifts | List Shifts
-*Pinwheel::JobsApi* | [**get_jobs_v1_jobs_get**](docs/JobsApi.md#get_jobs_v1_jobs_get) | **GET** /jobs | List Completed Jobs
-*Pinwheel::LinkTokensApi* | [**post_v1_link_tokens_post**](docs/LinkTokensApi.md#post_v1_link_tokens_post) | **POST** /link_tokens | Create Link Token
-*Pinwheel::SandboxApi* | [**patch_monitoring_status_v1_sandbox_accounts_account_id_patch**](docs/SandboxApi.md#patch_monitoring_status_v1_sandbox_accounts_account_id_patch) | **PATCH** /sandbox/accounts/{account_id} | Override an account's monitoring status
-*Pinwheel::TaxFormsApi* | [**get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get**](docs/TaxFormsApi.md#get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get) | **GET** /accounts/{account_id}/tax_forms/{tax_form_id} | Get Tax Form
-*Pinwheel::TaxFormsApi* | [**list_tax_forms_v1_accounts_account_id_tax_forms_get**](docs/TaxFormsApi.md#list_tax_forms_v1_accounts_account_id_tax_forms_get) | **GET** /accounts/{account_id}/tax_forms | List Tax Forms
-*Pinwheel::VerificationReportsApi* | [**get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get**](docs/VerificationReportsApi.md#get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get) | **GET** /end_users/{end_user_id}/verification_reports/voe | Get Verification of Employment Report
-*Pinwheel::VerificationReportsApi* | [**get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get**](docs/VerificationReportsApi.md#get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get) | **GET** /end_users/{end_user_id}/verification_reports/voie | Get Verification of Income and Employment Report
-*Pinwheel::WebhooksApi* | [**delete_v1_webhooks_webhook_id_delete**](docs/WebhooksApi.md#delete_v1_webhooks_webhook_id_delete) | **DELETE** /webhooks/{webhook_id} | Delete Webhook
-*Pinwheel::WebhooksApi* | [**get_v1_webhooks_get**](docs/WebhooksApi.md#get_v1_webhooks_get) | **GET** /webhooks | List Webhooks
-*Pinwheel::WebhooksApi* | [**get_webhook_by_id_v1_webhooks_webhook_id_get**](docs/WebhooksApi.md#get_webhook_by_id_v1_webhooks_webhook_id_get) | **GET** /webhooks/{webhook_id} | Get Webhook
-*Pinwheel::WebhooksApi* | [**post_v1_webhooks_post**](docs/WebhooksApi.md#post_v1_webhooks_post) | **POST** /webhooks | Create Webhook
-*Pinwheel::WebhooksApi* | [**put_v1_webhooks_webhook_id_put**](docs/WebhooksApi.md#put_v1_webhooks_webhook_id_put) | **PUT** /webhooks/{webhook_id} | Update Webhook
+*Pinwheel::PinwheelApi* | [**auth_v1_admin_token_post**](docs/PinwheelApi.md#auth_v1_admin_token_post) | **POST** /admin/token | Admin API Authentication
+*Pinwheel::PinwheelApi* | [**create_key_v1_admin_api_keys_post**](docs/PinwheelApi.md#create_key_v1_admin_api_keys_post) | **POST** /admin/api_keys | Create an API Key
+*Pinwheel::PinwheelApi* | [**delete_v1_webhooks_webhook_id_delete**](docs/PinwheelApi.md#delete_v1_webhooks_webhook_id_delete) | **DELETE** /webhooks/{webhook_id} | Delete Webhook
+*Pinwheel::PinwheelApi* | [**disable_monitoring_v1_accounts_account_id_disable_monitoring_post**](docs/PinwheelApi.md#disable_monitoring_v1_accounts_account_id_disable_monitoring_post) | **POST** /accounts/{account_id}/disable_monitoring | Disable monitoring for account
+*Pinwheel::PinwheelApi* | [**disconnect_v1_accounts_account_id_disconnect_post**](docs/PinwheelApi.md#disconnect_v1_accounts_account_id_disconnect_post) | **POST** /accounts/{account_id}/disconnect | Disconnect an account
+*Pinwheel::PinwheelApi* | [**get_account_v1_accounts_account_id_get**](docs/PinwheelApi.md#get_account_v1_accounts_account_id_get) | **GET** /accounts/{account_id} | Get Account
+*Pinwheel::PinwheelApi* | [**get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get**](docs/PinwheelApi.md#get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get) | **GET** /accounts/{account_id}/direct_deposit_allocations | Get Direct Deposit Allocations
+*Pinwheel::PinwheelApi* | [**get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get**](docs/PinwheelApi.md#get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get) | **GET** /end_users/{end_user_id}/earnings_stream/payouts | Get Earnings Stream Payouts
+*Pinwheel::PinwheelApi* | [**get_employer_v1_employers_employer_id_get**](docs/PinwheelApi.md#get_employer_v1_employers_employer_id_get) | **GET** /employers/{employer_id} | Get Employer
+*Pinwheel::PinwheelApi* | [**get_employment_v1_accounts_account_id_employment_get**](docs/PinwheelApi.md#get_employment_v1_accounts_account_id_employment_get) | **GET** /accounts/{account_id}/employment | Get Employment
+*Pinwheel::PinwheelApi* | [**get_end_user_accounts_v1_end_users_end_user_id_accounts_get**](docs/PinwheelApi.md#get_end_user_accounts_v1_end_users_end_user_id_accounts_get) | **GET** /end_users/{end_user_id}/accounts | Get all end user accounts
+*Pinwheel::PinwheelApi* | [**get_end_user_document_v1_end_users_end_user_id_documents_document_id_get**](docs/PinwheelApi.md#get_end_user_document_v1_end_users_end_user_id_documents_document_id_get) | **GET** /end_users/{end_user_id}/documents/{document_id} | Get Document
+*Pinwheel::PinwheelApi* | [**get_end_user_documents_v1_end_users_end_user_id_documents_get**](docs/PinwheelApi.md#get_end_user_documents_v1_end_users_end_user_id_documents_get) | **GET** /end_users/{end_user_id}/documents | List Documents
+*Pinwheel::PinwheelApi* | [**get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get**](docs/PinwheelApi.md#get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get) | **GET** /end_users/{end_user_id}/verification_reports/voe | Get Verification of Employment Report
+*Pinwheel::PinwheelApi* | [**get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get**](docs/PinwheelApi.md#get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get) | **GET** /end_users/{end_user_id}/verification_reports/voie | Get Verification of Income and Employment Report
+*Pinwheel::PinwheelApi* | [**get_identity_v1_accounts_account_id_identity_get**](docs/PinwheelApi.md#get_identity_v1_accounts_account_id_identity_get) | **GET** /accounts/{account_id}/identity | Get Identity
+*Pinwheel::PinwheelApi* | [**get_income_v1_accounts_account_id_income_get**](docs/PinwheelApi.md#get_income_v1_accounts_account_id_income_get) | **GET** /accounts/{account_id}/income | Get Income
+*Pinwheel::PinwheelApi* | [**get_jobs_v1_jobs_get**](docs/PinwheelApi.md#get_jobs_v1_jobs_get) | **GET** /jobs | List Completed Jobs
+*Pinwheel::PinwheelApi* | [**get_paystub_v1_accounts_account_id_paystubs_paystub_id_get**](docs/PinwheelApi.md#get_paystub_v1_accounts_account_id_paystubs_paystub_id_get) | **GET** /accounts/{account_id}/paystubs/{paystub_id} | Get Paystub
+*Pinwheel::PinwheelApi* | [**get_platform_v1_platforms_platform_id_get**](docs/PinwheelApi.md#get_platform_v1_platforms_platform_id_get) | **GET** /platforms/{platform_id} | Get Platform
+*Pinwheel::PinwheelApi* | [**get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get**](docs/PinwheelApi.md#get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get) | **GET** /accounts/{account_id}/tax_forms/{tax_form_id} | Get Tax Form
+*Pinwheel::PinwheelApi* | [**get_v1_company_connections_company_connection_id_census_get**](docs/PinwheelApi.md#get_v1_company_connections_company_connection_id_census_get) | **GET** /company_connections/{company_connection_id}/census | List Employees
+*Pinwheel::PinwheelApi* | [**get_v1_company_connections_company_connection_id_employments_get**](docs/PinwheelApi.md#get_v1_company_connections_company_connection_id_employments_get) | **GET** /company_connections/{company_connection_id}/employments | List Employments Data
+*Pinwheel::PinwheelApi* | [**get_v1_company_connections_company_connection_id_get**](docs/PinwheelApi.md#get_v1_company_connections_company_connection_id_get) | **GET** /company_connections/{company_connection_id} | Get Company Connection
+*Pinwheel::PinwheelApi* | [**get_v1_company_connections_company_connection_id_incomes_get**](docs/PinwheelApi.md#get_v1_company_connections_company_connection_id_incomes_get) | **GET** /company_connections/{company_connection_id}/incomes | List Employee Incomes
+*Pinwheel::PinwheelApi* | [**get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get**](docs/PinwheelApi.md#get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get) | **GET** /company_connections/{company_connection_id}/paystubs/{employee_external_id} | List Employee Paystubs
+*Pinwheel::PinwheelApi* | [**get_v1_employers_get**](docs/PinwheelApi.md#get_v1_employers_get) | **GET** /employers | List Employers
+*Pinwheel::PinwheelApi* | [**get_v1_search_get**](docs/PinwheelApi.md#get_v1_search_get) | **GET** /search | Search Employers and Platforms
+*Pinwheel::PinwheelApi* | [**get_v1_webhooks_get**](docs/PinwheelApi.md#get_v1_webhooks_get) | **GET** /webhooks | List Webhooks
+*Pinwheel::PinwheelApi* | [**get_webhook_by_id_v1_webhooks_webhook_id_get**](docs/PinwheelApi.md#get_webhook_by_id_v1_webhooks_webhook_id_get) | **GET** /webhooks/{webhook_id} | Get Webhook
+*Pinwheel::PinwheelApi* | [**list_accounts_v1_accounts_get**](docs/PinwheelApi.md#list_accounts_v1_accounts_get) | **GET** /accounts | List Accounts
+*Pinwheel::PinwheelApi* | [**list_keys_v1_admin_api_keys_get**](docs/PinwheelApi.md#list_keys_v1_admin_api_keys_get) | **GET** /admin/api_keys | List API Keys
+*Pinwheel::PinwheelApi* | [**list_paystubs_v1_accounts_account_id_paystubs_get**](docs/PinwheelApi.md#list_paystubs_v1_accounts_account_id_paystubs_get) | **GET** /accounts/{account_id}/paystubs | List Paystubs
+*Pinwheel::PinwheelApi* | [**list_platforms_v1_platforms_get**](docs/PinwheelApi.md#list_platforms_v1_platforms_get) | **GET** /platforms | List Platforms
+*Pinwheel::PinwheelApi* | [**list_shifts_v1_accounts_account_id_shifts_get**](docs/PinwheelApi.md#list_shifts_v1_accounts_account_id_shifts_get) | **GET** /accounts/{account_id}/shifts | List Shifts
+*Pinwheel::PinwheelApi* | [**list_tax_forms_v1_accounts_account_id_tax_forms_get**](docs/PinwheelApi.md#list_tax_forms_v1_accounts_account_id_tax_forms_get) | **GET** /accounts/{account_id}/tax_forms | List Tax Forms
+*Pinwheel::PinwheelApi* | [**list_v1_company_connections_get**](docs/PinwheelApi.md#list_v1_company_connections_get) | **GET** /company_connections | List Company Connections
+*Pinwheel::PinwheelApi* | [**patch_monitoring_status_v1_sandbox_accounts_account_id_patch**](docs/PinwheelApi.md#patch_monitoring_status_v1_sandbox_accounts_account_id_patch) | **PATCH** /sandbox/accounts/{account_id} | Override an account's monitoring status
+*Pinwheel::PinwheelApi* | [**post_v1_company_connect_link_tokens_post**](docs/PinwheelApi.md#post_v1_company_connect_link_tokens_post) | **POST** /company_connect/link_tokens | Create Link Token
+*Pinwheel::PinwheelApi* | [**post_v1_company_connections_post**](docs/PinwheelApi.md#post_v1_company_connections_post) | **POST** /company_connections | Create Company Connection
+*Pinwheel::PinwheelApi* | [**post_v1_link_tokens_post**](docs/PinwheelApi.md#post_v1_link_tokens_post) | **POST** /link_tokens | Create Link Token
+*Pinwheel::PinwheelApi* | [**post_v1_webhooks_post**](docs/PinwheelApi.md#post_v1_webhooks_post) | **POST** /webhooks | Create Webhook
+*Pinwheel::PinwheelApi* | [**put_v1_webhooks_webhook_id_put**](docs/PinwheelApi.md#put_v1_webhooks_webhook_id_put) | **PUT** /webhooks/{webhook_id} | Update Webhook
+*Pinwheel::PinwheelApi* | [**revoke_key_v1_admin_api_keys_api_key_revoke_post**](docs/PinwheelApi.md#revoke_key_v1_admin_api_keys_api_key_revoke_post) | **POST** /admin/api_keys/{api_key}/revoke | Revoke an API Key
 
 
 ## Documentation for Models

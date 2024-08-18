@@ -98,24 +98,24 @@ module Pinwheel
         self.social_security_number_last_four = attributes[:social_security_number_last_four]
       end
 
-      self.date_of_birth = if attributes.key?(:date_of_birth)
-        attributes[:date_of_birth]
+      if attributes.key?(:date_of_birth)
+        self.date_of_birth = attributes[:date_of_birth]
       end
 
-      self.last_name = if attributes.key?(:last_name)
-        attributes[:last_name]
+      if attributes.key?(:last_name)
+        self.last_name = attributes[:last_name]
       end
 
-      self.first_name = if attributes.key?(:first_name)
-        attributes[:first_name]
+      if attributes.key?(:first_name)
+        self.first_name = attributes[:first_name]
       end
 
-      self.mobile_phone_number = if attributes.key?(:mobile_phone_number)
-        attributes[:mobile_phone_number]
+      if attributes.key?(:mobile_phone_number)
+        self.mobile_phone_number = attributes[:mobile_phone_number]
       end
 
-      self.home_address_zip_code = if attributes.key?(:home_address_zip_code)
-        attributes[:home_address_zip_code]
+      if attributes.key?(:home_address_zip_code)
+        self.home_address_zip_code = attributes[:home_address_zip_code]
       end
 
       if attributes.key?(:email)
@@ -154,49 +154,29 @@ module Pinwheel
         invalid_properties.push("invalid value for \"social_security_number_last_four\", must conform to the pattern #{pattern}.")
       end
 
-      if @date_of_birth.nil?
-        invalid_properties.push('invalid value for "date_of_birth", date_of_birth cannot be nil.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @mobile_phone_number.nil?
-        invalid_properties.push('invalid value for "mobile_phone_number", mobile_phone_number cannot be nil.')
-      end
-
-      if @mobile_phone_number.to_s.length > 10
+      if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 10
         invalid_properties.push('invalid value for "mobile_phone_number", the character length must be smaller than or equal to 10.')
       end
 
-      if @mobile_phone_number.to_s.length < 10
+      if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length < 10
         invalid_properties.push('invalid value for "mobile_phone_number", the character length must be great than or equal to 10.')
       end
 
       pattern = /^[0-9]*$/
-      if !@mobile_phone_number&.match?(pattern)
+      if !@mobile_phone_number.nil? && @mobile_phone_number !~ pattern
         invalid_properties.push("invalid value for \"mobile_phone_number\", must conform to the pattern #{pattern}.")
       end
 
-      if @home_address_zip_code.nil?
-        invalid_properties.push('invalid value for "home_address_zip_code", home_address_zip_code cannot be nil.')
-      end
-
-      if @home_address_zip_code.to_s.length > 5
+      if !@home_address_zip_code.nil? && @home_address_zip_code.to_s.length > 5
         invalid_properties.push('invalid value for "home_address_zip_code", the character length must be smaller than or equal to 5.')
       end
 
-      if @home_address_zip_code.to_s.length < 5
+      if !@home_address_zip_code.nil? && @home_address_zip_code.to_s.length < 5
         invalid_properties.push('invalid value for "home_address_zip_code", the character length must be great than or equal to 5.')
       end
 
       pattern = /^[0-9]*$/
-      if !@home_address_zip_code&.match?(pattern)
+      if !@home_address_zip_code.nil? && @home_address_zip_code !~ pattern
         invalid_properties.push("invalid value for \"home_address_zip_code\", must conform to the pattern #{pattern}.")
       end
 
@@ -213,17 +193,12 @@ module Pinwheel
       return false if !@social_security_number_last_four.nil? && @social_security_number_last_four.to_s.length > 4
       return false if !@social_security_number_last_four.nil? && @social_security_number_last_four.to_s.length < 4
       return false if !@social_security_number_last_four.nil? && @social_security_number_last_four !~ /^[0-9]*$/
-      return false if @date_of_birth.nil?
-      return false if @last_name.nil?
-      return false if @first_name.nil?
-      return false if @mobile_phone_number.nil?
-      return false if @mobile_phone_number.to_s.length > 10
-      return false if @mobile_phone_number.to_s.length < 10
-      return false if !@mobile_phone_number&.match?(/^[0-9]*$/)
-      return false if @home_address_zip_code.nil?
-      return false if @home_address_zip_code.to_s.length > 5
-      return false if @home_address_zip_code.to_s.length < 5
-      return false if !@home_address_zip_code&.match?(/^[0-9]*$/)
+      return false if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length > 10
+      return false if !@mobile_phone_number.nil? && @mobile_phone_number.to_s.length < 10
+      return false if !@mobile_phone_number.nil? && @mobile_phone_number !~ /^[0-9]*$/
+      return false if !@home_address_zip_code.nil? && @home_address_zip_code.to_s.length > 5
+      return false if !@home_address_zip_code.nil? && @home_address_zip_code.to_s.length < 5
+      return false if !@home_address_zip_code.nil? && @home_address_zip_code !~ /^[0-9]*$/
       true
     end
 
@@ -355,15 +330,15 @@ module Pinwheel
       transformed_hash = {}
       openapi_types.each_pair do |key, type|
         if attributes.key?(attribute_map[key]) && attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = nil
+          transformed_hash[key.to_s] = nil
         elsif type =~ /\AArray<(.*)>/i
           # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[attribute_map[key]].is_a?(Array)
-            transformed_hash["#{key}"] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
+            transformed_hash[key.to_s] = attributes[attribute_map[key]].map { |v| _deserialize($1, v) }
           end
         elsif !attributes[attribute_map[key]].nil?
-          transformed_hash["#{key}"] = _deserialize(type, attributes[attribute_map[key]])
+          transformed_hash[key.to_s] = _deserialize(type, attributes[attribute_map[key]])
         end
       end
       new(transformed_hash)
