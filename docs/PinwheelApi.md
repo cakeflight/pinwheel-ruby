@@ -1328,7 +1328,7 @@ pinwheel_version = '2023-11-22' # String | Version identifier specifying how the
 opts = {
   link_token_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | UUID of the link token triggering the job.
   account_id: '38400000-8cf0-11bd-b23e-10b96e4ef00d', # String | UUID of the payroll account.
-  job_types: ['tax_forms'], # Array<String> | List of job types. May be expanded to include new enum values (see our Change Management policy).
+  job_types: ['direct_deposit_switch'], # Array<String> | List of job types. May be expanded to include new enum values (see our Change Management policy).
   outcome: TODO, # String | The outcome of the job.
   limit: 56, # Integer | The maximum number of results to return.
   cursor: 'cursor_example', # String | Cursor for the page you want to retrieve.
@@ -2117,7 +2117,7 @@ api_instance = Pinwheel::PinwheelApi.new
 q = 'q_example' # String | Search query on the employer/platform name.
 pinwheel_version = '2023-11-22' # String | Version identifier specifying how the Pinwheel API should behave. See the Change Management page for more information.
 opts = {
-  supported_jobs: ['tax_forms'], # Array<String> | Filter on supported jobs. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
+  supported_jobs: ['direct_deposit_switch'], # Array<String> | Filter on supported jobs. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
   response_types: ['employer'], # Array<String> | Filter on response type. Multiple keys are allowed. May be expanded to include new enum values (see our Change Management policy).
   amount_supported: true, # Boolean | Filter on amount_supported. If true, results that support setting a specific dollar amount for direct deposit switches will be returned. If false, results that support setting a specific dollar amount for direct deposit switches will be excluded.
   platform_type: TODO, # String | If included, filters results by the platform `type`. Platforms are either `payroll` or `time_and_attendance`. Most platforms are `payroll`. Payroll platforms support operations such as updating direct deposit allocation settings. Time & Attendance platforms contain data around shifts and hours worked, but do not support payroll operations.
@@ -3215,7 +3215,7 @@ end
 
 api_instance = Pinwheel::PinwheelApi.new
 pinwheel_version = '2023-11-22' # String | Version identifier specifying how the Pinwheel API should behave. See the Change Management page for more information.
-webhook_create_v20230418 = Pinwheel::WebhookCreateV20230418.new({url: 'url_example', status: 'active', enabled_events: ['paystubs.thirty_days_synced'], version: '2023-04-18'}) # WebhookCreateV20230418 | 
+webhook_create_v20230418 = Pinwheel::WebhookCreateV20230418.new({url: 'url_example', status: 'active', enabled_events: ['shifts.fully_synced'], version: '2023-11-22'}) # WebhookCreateV20230418 | 
 
 begin
   # Create Webhook
