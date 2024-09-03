@@ -1,8 +1,6 @@
 .gitignore
 .rspec
-Gemfile
 README.md
-Rakefile
 docs/AddressGetResponseItem.md
 docs/Allocation.md
 docs/AllocationAccountObjResponse.md

@@ -1,0 +1,30 @@
+# Run `openapi-generator config-help -g ruby` to see all generator options
+generatorName: ruby
+outputDir: .
+inputSpec: https://sandbox.getpinwheel.com/openapi.json
+library: faraday
+globalProperties:
+  modelTests: false
+  apiTests: false
+openapiGeneratorIgnoreList:
+  - git_push.sh
+  - .travis.yml
+  - .gitlab-ci.yml
+  - Gemfile.lock
+  - Gemfile
+  - .rubocop.yml
+  - Rakefile
+openapiNormalizer:
+  SET_TAGS_FOR_ALL_OPERATIONS: pinwheel
+additionalProperties:
+  hideGenerationTimestamp: "true"
+  gemName: pinwheel
+  gemRequiredRubyVersion: ">= 3.0.0"
+  useAutoload: true
+  gemSummary: |
+    A Ruby client for the [Pinwheel Payroll API](https://docs.pinwheelapi.com/public/reference/api-overview).
+  gemDescription: |
+    A Ruby client for the Pinwheel API.
+    Generated using [openapi-generator](https://openapi-generator.tech/) mirroring the [configuration that Plaid uses](https://github.com/plaid/plaid-openapi?tab=readme-ov-file#plaid-ruby) to generate [their Ruby client](https://github.com/plaid/plaid-ruby).
+  gemLicense: MIT
+strictSpecBehavior: false

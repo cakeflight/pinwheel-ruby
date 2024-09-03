@@ -33,4 +33,7 @@
 git_push.sh
 .travis.yml
 .gitlab-ci.yml
+Gemfile.lock
+Rakefile
+Gemfile
 .rubocop.yml

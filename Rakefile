@@ -8,3 +8,6 @@ begin
 rescue LoadError
   # no rspec available
 end
+
+require "rubocop/rake_task"
+RuboCop::RakeTask.new(:lint)
