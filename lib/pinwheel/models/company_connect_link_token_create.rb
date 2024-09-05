@@ -83,7 +83,12 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :org_name,
+        :skip_intro_screen,
+        :platform_id,
+        :language
+      ])
     end
 
     # Initializes the object
@@ -135,10 +140,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @org_name.nil?
-        invalid_properties.push('invalid value for "org_name", org_name cannot be nil.')
-      end
-
       if @org_name.to_s.length > 30
         invalid_properties.push('invalid value for "org_name", the character length must be smaller than or equal to 30.')
       end
@@ -154,7 +155,6 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @org_name.nil?
       return false if @org_name.to_s.length > 30
       return false if @org_name.to_s.length < 3
       language_validator = EnumAttributeValidator.new("String", ["en", "es"])
@@ -165,15 +165,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] org_name Value to be assigned
     def org_name=(org_name)
-      if org_name.nil?
-        fail ArgumentError, "org_name cannot be nil"
-      end
-
-      if org_name.to_s.length > 30
+      if !org_name.nil? && org_name.to_s.length > 30
         fail ArgumentError, 'invalid value for "org_name", the character length must be smaller than or equal to 30.'
       end
 
-      if org_name.to_s.length < 3
+      if !org_name.nil? && org_name.to_s.length < 3
         fail ArgumentError, 'invalid value for "org_name", the character length must be great than or equal to 3.'
       end
 

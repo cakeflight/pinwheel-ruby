@@ -124,7 +124,16 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :document_type,
+        :pay_date,
+        :pay_period_start,
+        :pay_period_end,
+        :gross_pay_amount,
+        :gross_pay_ytd,
+        :net_pay_amount,
+        :net_pay_ytd
+      ])
     end
 
     # Initializes the object

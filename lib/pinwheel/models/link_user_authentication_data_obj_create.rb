@@ -72,7 +72,16 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :social_security_number,
+        :social_security_number_last_four,
+        :date_of_birth,
+        :last_name,
+        :first_name,
+        :mobile_phone_number,
+        :home_address_zip_code,
+        :email
+      ])
     end
 
     # Initializes the object
@@ -205,20 +214,16 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] social_security_number Value to be assigned
     def social_security_number=(social_security_number)
-      if social_security_number.nil?
-        fail ArgumentError, "social_security_number cannot be nil"
-      end
-
-      if social_security_number.to_s.length > 9
+      if !social_security_number.nil? && social_security_number.to_s.length > 9
         fail ArgumentError, 'invalid value for "social_security_number", the character length must be smaller than or equal to 9.'
       end
 
-      if social_security_number.to_s.length < 9
+      if !social_security_number.nil? && social_security_number.to_s.length < 9
         fail ArgumentError, 'invalid value for "social_security_number", the character length must be great than or equal to 9.'
       end
 
       pattern = /^[0-9]*$/
-      if !social_security_number&.match?(pattern)
+      if !social_security_number.nil? && social_security_number !~ pattern
         fail ArgumentError, "invalid value for \"social_security_number\", must conform to the pattern #{pattern}."
       end
 
@@ -228,20 +233,16 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] social_security_number_last_four Value to be assigned
     def social_security_number_last_four=(social_security_number_last_four)
-      if social_security_number_last_four.nil?
-        fail ArgumentError, "social_security_number_last_four cannot be nil"
-      end
-
-      if social_security_number_last_four.to_s.length > 4
+      if !social_security_number_last_four.nil? && social_security_number_last_four.to_s.length > 4
         fail ArgumentError, 'invalid value for "social_security_number_last_four", the character length must be smaller than or equal to 4.'
       end
 
-      if social_security_number_last_four.to_s.length < 4
+      if !social_security_number_last_four.nil? && social_security_number_last_four.to_s.length < 4
         fail ArgumentError, 'invalid value for "social_security_number_last_four", the character length must be great than or equal to 4.'
       end
 
       pattern = /^[0-9]*$/
-      if !social_security_number_last_four&.match?(pattern)
+      if !social_security_number_last_four.nil? && social_security_number_last_four !~ pattern
         fail ArgumentError, "invalid value for \"social_security_number_last_four\", must conform to the pattern #{pattern}."
       end
 
@@ -251,20 +252,16 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] mobile_phone_number Value to be assigned
     def mobile_phone_number=(mobile_phone_number)
-      if mobile_phone_number.nil?
-        fail ArgumentError, "mobile_phone_number cannot be nil"
-      end
-
-      if mobile_phone_number.to_s.length > 10
+      if !mobile_phone_number.nil? && mobile_phone_number.to_s.length > 10
         fail ArgumentError, 'invalid value for "mobile_phone_number", the character length must be smaller than or equal to 10.'
       end
 
-      if mobile_phone_number.to_s.length < 10
+      if !mobile_phone_number.nil? && mobile_phone_number.to_s.length < 10
         fail ArgumentError, 'invalid value for "mobile_phone_number", the character length must be great than or equal to 10.'
       end
 
       pattern = /^[0-9]*$/
-      if !mobile_phone_number&.match?(pattern)
+      if !mobile_phone_number.nil? && mobile_phone_number !~ pattern
         fail ArgumentError, "invalid value for \"mobile_phone_number\", must conform to the pattern #{pattern}."
       end
 
@@ -274,20 +271,16 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] home_address_zip_code Value to be assigned
     def home_address_zip_code=(home_address_zip_code)
-      if home_address_zip_code.nil?
-        fail ArgumentError, "home_address_zip_code cannot be nil"
-      end
-
-      if home_address_zip_code.to_s.length > 5
+      if !home_address_zip_code.nil? && home_address_zip_code.to_s.length > 5
         fail ArgumentError, 'invalid value for "home_address_zip_code", the character length must be smaller than or equal to 5.'
       end
 
-      if home_address_zip_code.to_s.length < 5
+      if !home_address_zip_code.nil? && home_address_zip_code.to_s.length < 5
         fail ArgumentError, 'invalid value for "home_address_zip_code", the character length must be great than or equal to 5.'
       end
 
       pattern = /^[0-9]*$/
-      if !home_address_zip_code&.match?(pattern)
+      if !home_address_zip_code.nil? && home_address_zip_code !~ pattern
         fail ArgumentError, "invalid value for \"home_address_zip_code\", must conform to the pattern #{pattern}."
       end
 

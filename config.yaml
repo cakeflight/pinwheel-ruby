@@ -16,6 +16,7 @@ openapiGeneratorIgnoreList:
   - Rakefile
 openapiNormalizer:
   SET_TAGS_FOR_ALL_OPERATIONS: pinwheel
+  SET_PRIMITIVE_TYPES_TO_NULLABLE: string|integer|number|boolean
 additionalProperties:
   hideGenerationTimestamp: "true"
   gemName: pinwheel

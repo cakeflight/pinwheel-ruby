@@ -87,7 +87,11 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :created_at,
+        :end_user_id,
+        :document_type
+      ])
     end
 
     # Initializes the object
@@ -141,20 +145,8 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @end_user_id.nil?
-        invalid_properties.push('invalid value for "end_user_id", end_user_id cannot be nil.')
-      end
-
       if @document.nil?
         invalid_properties.push('invalid value for "document", document cannot be nil.')
-      end
-
-      if @document_type.nil?
-        invalid_properties.push('invalid value for "document_type", document_type cannot be nil.')
       end
 
       invalid_properties
@@ -164,10 +156,7 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @created_at.nil?
-      return false if @end_user_id.nil?
       return false if @document.nil?
-      return false if @document_type.nil?
       document_type_validator = EnumAttributeValidator.new("String", ["paystub", "W-2", "1099", "direct_deposit_form", "verification_report", "1040"])
       return false unless document_type_validator.valid?(@document_type)
       true

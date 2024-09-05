@@ -125,7 +125,19 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :org_name,
+        :skip_intro_screen,
+        :employer_id,
+        :disable_direct_deposit_splitting,
+        :platform_id,
+        :platform_type,
+        :language,
+        :end_user_id,
+        :account_id,
+        :document_uploads,
+        :deposit_forms
+      ])
     end
 
     # Initializes the object
@@ -217,10 +229,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @org_name.nil?
-        invalid_properties.push('invalid value for "org_name", org_name cannot be nil.')
-      end
-
       if @org_name.to_s.length > 30
         invalid_properties.push('invalid value for "org_name", the character length must be smaller than or equal to 30.')
       end
@@ -244,7 +252,6 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @org_name.nil?
       return false if @org_name.to_s.length > 30
       return false if @org_name.to_s.length < 3
       platform_type_validator = EnumAttributeValidator.new("String", ["payroll", "time_and_attendance", "tax"])
@@ -263,15 +270,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] org_name Value to be assigned
     def org_name=(org_name)
-      if org_name.nil?
-        fail ArgumentError, "org_name cannot be nil"
-      end
-
-      if org_name.to_s.length > 30
+      if !org_name.nil? && org_name.to_s.length > 30
         fail ArgumentError, 'invalid value for "org_name", the character length must be smaller than or equal to 30.'
       end
 
-      if org_name.to_s.length < 3
+      if !org_name.nil? && org_name.to_s.length < 3
         fail ArgumentError, 'invalid value for "org_name", the character length must be great than or equal to 3.'
       end
 
@@ -301,15 +304,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] end_user_id Value to be assigned
     def end_user_id=(end_user_id)
-      if end_user_id.nil?
-        fail ArgumentError, "end_user_id cannot be nil"
-      end
-
-      if end_user_id.to_s.length > 255
+      if !end_user_id.nil? && end_user_id.to_s.length > 255
         fail ArgumentError, 'invalid value for "end_user_id", the character length must be smaller than or equal to 255.'
       end
 
-      if end_user_id.to_s.length < 1
+      if !end_user_id.nil? && end_user_id.to_s.length < 1
         fail ArgumentError, 'invalid value for "end_user_id", the character length must be great than or equal to 1.'
       end
 

@@ -81,7 +81,12 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :pay_frequency,
+        :compensation_unit,
+        :compensation_amount,
+        :currency
+      ])
     end
 
     # Initializes the object
@@ -137,18 +142,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @compensation_unit.nil?
-        invalid_properties.push('invalid value for "compensation_unit", compensation_unit cannot be nil.')
-      end
-
-      if @compensation_amount.nil?
-        invalid_properties.push('invalid value for "compensation_amount", compensation_amount cannot be nil.')
-      end
-
-      if @currency.nil?
-        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
-      end
-
       if @annual_incomes.nil?
         invalid_properties.push('invalid value for "annual_incomes", annual_incomes cannot be nil.')
       end
@@ -166,11 +159,8 @@ module Pinwheel
       warn "[DEPRECATED] the `valid?` method is obsolete"
       pay_frequency_validator = EnumAttributeValidator.new("String", ["daily", "weekly", "bi-weekly", "monthly", "semi-monthly", "variable"])
       return false unless pay_frequency_validator.valid?(@pay_frequency)
-      return false if @compensation_unit.nil?
       compensation_unit_validator = EnumAttributeValidator.new("String", ["hourly", "daily", "weekly", "bi-weekly", "semi-weekly", "monthly", "semi-monthly", "annually", "variable", "per_mile"])
       return false unless compensation_unit_validator.valid?(@compensation_unit)
-      return false if @compensation_amount.nil?
-      return false if @currency.nil?
       currency_validator = EnumAttributeValidator.new("String", ["AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BOV", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", "CAD", "CDF", "CHE", "CHF", "CHW", "CLF", "CLP", "CNY", "COP", "COU", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "SSP", "STD", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "USN", "USS", "UYI", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XBA", "XBB", "XBC", "XBD", "XCD", "XDR", "XOF", "XPD", "XPF", "XPT", "XTS", "XXX", "YER", "ZAR", "ZMW"])
       return false unless currency_validator.valid?(@currency)
       return false if @annual_incomes.nil?

@@ -88,7 +88,12 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :id,
+        :updated_at,
+        :refreshed_at,
+        :report_type
+      ])
     end
 
     # Initializes the object
@@ -144,28 +149,12 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @updated_at.nil?
-        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
-      end
-
-      if @refreshed_at.nil?
-        invalid_properties.push('invalid value for "refreshed_at", refreshed_at cannot be nil.')
-      end
-
       if @employee.nil?
         invalid_properties.push('invalid value for "employee", employee cannot be nil.')
       end
 
       if @employments.nil?
         invalid_properties.push('invalid value for "employments", employments cannot be nil.')
-      end
-
-      if @report_type.nil?
-        invalid_properties.push('invalid value for "report_type", report_type cannot be nil.')
       end
 
       invalid_properties
@@ -175,12 +164,8 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @id.nil?
-      return false if @updated_at.nil?
-      return false if @refreshed_at.nil?
       return false if @employee.nil?
       return false if @employments.nil?
-      return false if @report_type.nil?
       report_type_validator = EnumAttributeValidator.new("String", ["voe", "voie", "base"])
       return false unless report_type_validator.valid?(@report_type)
       true

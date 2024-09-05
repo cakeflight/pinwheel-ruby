@@ -88,7 +88,15 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :mode,
+        :key,
+        :expires_at,
+        :created_at,
+        :last_used_at,
+        :is_active,
+        :revoked_at
+      ])
     end
 
     # Initializes the object
@@ -139,36 +147,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @mode.nil?
-        invalid_properties.push('invalid value for "mode", mode cannot be nil.')
-      end
-
-      if @key.nil?
-        invalid_properties.push('invalid value for "key", key cannot be nil.')
-      end
-
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @is_active.nil?
-        invalid_properties.push('invalid value for "is_active", is_active cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @mode.nil?
       mode_validator = EnumAttributeValidator.new("String", ["sandbox", "development", "production"])
       return false unless mode_validator.valid?(@mode)
-      return false if @key.nil?
-      return false if @created_at.nil?
-      return false if @is_active.nil?
       true
     end
 

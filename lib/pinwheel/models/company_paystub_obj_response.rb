@@ -128,7 +128,23 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :created_at,
+        :employee_external_id,
+        :pay_date,
+        :pay_period_start,
+        :pay_period_end,
+        :currency,
+        :gross_pay_amount,
+        :net_pay_amount,
+        :check_amount,
+        :gross_pay_ytd,
+        :net_pay_ytd,
+        :total_taxes,
+        :total_deductions,
+        :total_reimbursements,
+        :employer_name
+      ])
     end
 
     # Initializes the object
@@ -211,66 +227,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @employee_external_id.nil?
-        invalid_properties.push('invalid value for "employee_external_id", employee_external_id cannot be nil.')
-      end
-
-      if @pay_date.nil?
-        invalid_properties.push('invalid value for "pay_date", pay_date cannot be nil.')
-      end
-
-      if @currency.nil?
-        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
-      end
-
-      if @gross_pay_amount.nil?
-        invalid_properties.push('invalid value for "gross_pay_amount", gross_pay_amount cannot be nil.')
-      end
-
-      if @net_pay_amount.nil?
-        invalid_properties.push('invalid value for "net_pay_amount", net_pay_amount cannot be nil.')
-      end
-
-      if @check_amount.nil?
-        invalid_properties.push('invalid value for "check_amount", check_amount cannot be nil.')
-      end
-
-      if @total_taxes.nil?
-        invalid_properties.push('invalid value for "total_taxes", total_taxes cannot be nil.')
-      end
-
-      if @total_deductions.nil?
-        invalid_properties.push('invalid value for "total_deductions", total_deductions cannot be nil.')
-      end
-
-      if @total_reimbursements.nil?
-        invalid_properties.push('invalid value for "total_reimbursements", total_reimbursements cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @created_at.nil?
-      return false if @employee_external_id.nil?
-      return false if @pay_date.nil?
-      return false if @currency.nil?
       currency_validator = EnumAttributeValidator.new("String", ["AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BOV", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", "CAD", "CDF", "CHE", "CHF", "CHW", "CLF", "CLP", "CNY", "COP", "COU", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "SSP", "STD", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "USN", "USS", "UYI", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XBA", "XBB", "XBC", "XBD", "XCD", "XDR", "XOF", "XPD", "XPF", "XPT", "XTS", "XXX", "YER", "ZAR", "ZMW"])
       return false unless currency_validator.valid?(@currency)
-      return false if @gross_pay_amount.nil?
-      return false if @net_pay_amount.nil?
-      return false if @check_amount.nil?
-      return false if @total_taxes.nil?
-      return false if @total_deductions.nil?
-      return false if @total_reimbursements.nil?
       true
     end
 

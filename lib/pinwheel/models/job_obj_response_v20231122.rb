@@ -97,7 +97,16 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :id,
+        :name,
+        :timestamp,
+        :outcome,
+        :error_code,
+        :error_type,
+        :link_token_id,
+        :account_id
+      ])
     end
 
     # Initializes the object
@@ -156,50 +165,24 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @timestamp.nil?
-        invalid_properties.push('invalid value for "timestamp", timestamp cannot be nil.')
-      end
-
-      if @outcome.nil?
-        invalid_properties.push('invalid value for "outcome", outcome cannot be nil.')
-      end
-
-      if @link_token_id.nil?
-        invalid_properties.push('invalid value for "link_token_id", link_token_id cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @id.nil?
-      return false if @name.nil?
-      name_validator = EnumAttributeValidator.new("String", ["direct_deposit_switch", "employment", "direct_deposit_allocations", "identity", "tax_forms", "income", "shifts", "paystubs", "direct_deposit_payment"])
+      name_validator = EnumAttributeValidator.new("String", ["shifts", "direct_deposit_allocations", "tax_forms", "direct_deposit_switch", "identity", "employment", "income", "direct_deposit_payment", "paystubs"])
       return false unless name_validator.valid?(@name)
-      return false if @timestamp.nil?
-      return false if @outcome.nil?
       outcome_validator = EnumAttributeValidator.new("String", ["pending", "error", "success"])
       return false unless outcome_validator.valid?(@outcome)
-      return false if @link_token_id.nil?
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] name Object to be assigned
     def name=(name)
-      validator = EnumAttributeValidator.new("String", ["direct_deposit_switch", "employment", "direct_deposit_allocations", "identity", "tax_forms", "income", "shifts", "paystubs", "direct_deposit_payment"])
+      validator = EnumAttributeValidator.new("String", ["shifts", "direct_deposit_allocations", "tax_forms", "direct_deposit_switch", "identity", "employment", "income", "direct_deposit_payment", "paystubs"])
       unless validator.valid?(name)
         fail ArgumentError, "invalid value for \"name\", must be one of #{validator.allowable_values}."
       end

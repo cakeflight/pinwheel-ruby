@@ -77,7 +77,13 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :token,
+        :expiration,
+        :workspace_name,
+        :mode,
+        :user_role
+      ])
     end
 
     # Initializes the object
@@ -120,41 +126,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @token.nil?
-        invalid_properties.push('invalid value for "token", token cannot be nil.')
-      end
-
-      if @expiration.nil?
-        invalid_properties.push('invalid value for "expiration", expiration cannot be nil.')
-      end
-
-      if @workspace_name.nil?
-        invalid_properties.push('invalid value for "workspace_name", workspace_name cannot be nil.')
-      end
-
-      if @mode.nil?
-        invalid_properties.push('invalid value for "mode", mode cannot be nil.')
-      end
-
-      if @user_role.nil?
-        invalid_properties.push('invalid value for "user_role", user_role cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @token.nil?
-      return false if @expiration.nil?
-      return false if @workspace_name.nil?
-      return false if @mode.nil?
       mode_validator = EnumAttributeValidator.new("String", ["sandbox", "development", "production"])
       return false unless mode_validator.valid?(@mode)
-      return false if @user_role.nil?
       user_role_validator = EnumAttributeValidator.new("String", ["owner", "administrator", "developer"])
       return false unless user_role_validator.valid?(@user_role)
       true

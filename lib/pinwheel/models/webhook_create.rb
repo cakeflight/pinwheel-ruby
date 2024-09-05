@@ -72,7 +72,11 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :url,
+        :status,
+        :version
+      ])
     end
 
     # Initializes the object
@@ -116,14 +120,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @url.nil?
-        invalid_properties.push('invalid value for "url", url cannot be nil.')
-      end
-
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
       if @enabled_events.nil?
         invalid_properties.push('invalid value for "enabled_events", enabled_events cannot be nil.')
       end
@@ -139,13 +135,11 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @url.nil?
-      return false if @status.nil?
       status_validator = EnumAttributeValidator.new("String", ["active", "paused"])
       return false unless status_validator.valid?(@status)
       return false if @enabled_events.nil?
       return false if @enabled_events.length < 1
-      version_validator = EnumAttributeValidator.new("String", ["2022-09-09", "2023-11-22", "2023-04-18", "2023-07-18"])
+      version_validator = EnumAttributeValidator.new("String", ["2023-04-18", "2022-09-09", "2023-07-18", "2023-11-22"])
       return false unless version_validator.valid?(@version)
       true
     end
@@ -163,7 +157,7 @@ module Pinwheel
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] version Object to be assigned
     def version=(version)
-      validator = EnumAttributeValidator.new("String", ["2022-09-09", "2023-11-22", "2023-04-18", "2023-07-18"])
+      validator = EnumAttributeValidator.new("String", ["2023-04-18", "2022-09-09", "2023-07-18", "2023-11-22"])
       unless validator.valid?(version)
         fail ArgumentError, "invalid value for \"version\", must be one of #{validator.allowable_values}."
       end

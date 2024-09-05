@@ -87,7 +87,16 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :created_at,
+        :employee_external_id,
+        :date_of_birth,
+        :first_name,
+        :middle_name,
+        :last_name,
+        :last_four_ssn,
+        :full_name
+      ])
     end
 
     # Initializes the object
@@ -158,44 +167,13 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @employee_external_id.nil?
-        invalid_properties.push('invalid value for "employee_external_id", employee_external_id cannot be nil.')
-      end
-
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @middle_name.nil?
-        invalid_properties.push('invalid value for "middle_name", middle_name cannot be nil.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      if @full_name.nil?
-        invalid_properties.push('invalid value for "full_name", full_name cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @created_at.nil?
-      return false if @employee_external_id.nil?
-      return false if @first_name.nil?
-      return false if @middle_name.nil?
-      return false if @last_name.nil?
-      return false if @full_name.nil?
       true
     end
 

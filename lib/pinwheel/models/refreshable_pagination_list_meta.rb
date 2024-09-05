@@ -47,7 +47,11 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :refreshed_at,
+        :count,
+        :next_cursor
+      ])
     end
 
     # Initializes the object

@@ -101,7 +101,18 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :account_name,
+        :account_type,
+        :allocation_type,
+        :amount,
+        :bank_name,
+        :currency,
+        :masked_account_number,
+        :percentage,
+        :priority,
+        :routing_number
+      ])
     end
 
     # Initializes the object
@@ -165,14 +176,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @allocation_type.nil?
-        invalid_properties.push('invalid value for "allocation_type", allocation_type cannot be nil.')
-      end
-
-      if @currency.nil?
-        invalid_properties.push('invalid value for "currency", currency cannot be nil.')
-      end
-
       if !@masked_account_number.nil? && @masked_account_number.to_s.length > 4
         invalid_properties.push('invalid value for "masked_account_number", the character length must be smaller than or equal to 4.')
       end
@@ -190,10 +193,8 @@ module Pinwheel
       warn "[DEPRECATED] the `valid?` method is obsolete"
       account_type_validator = EnumAttributeValidator.new("String", ["checking", "savings", "debit_card", "pay_card"])
       return false unless account_type_validator.valid?(@account_type)
-      return false if @allocation_type.nil?
       allocation_type_validator = EnumAttributeValidator.new("String", ["amount", "percentage", "remainder"])
       return false unless allocation_type_validator.valid?(@allocation_type)
-      return false if @currency.nil?
       currency_validator = EnumAttributeValidator.new("String", ["AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BOV", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", "CAD", "CDF", "CHE", "CHF", "CHW", "CLF", "CLP", "CNY", "COP", "COU", "CRC", "CUC", "CUP", "CVE", "CZK", "DJF", "DKK", "DOP", "DZD", "EGP", "ERN", "ETB", "EUR", "FJD", "FKP", "GBP", "GEL", "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", "ILS", "INR", "IQD", "IRR", "ISK", "JMD", "JOD", "JPY", "KES", "KGS", "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", "LTL", "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MUR", "MVR", "MWK", "MXN", "MXV", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RUB", "RWF", "SAR", "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SRD", "SSP", "STD", "SYP", "SZL", "THB", "TJS", "TMT", "TND", "TOP", "TRY", "TTD", "TWD", "TZS", "UAH", "UGX", "USD", "USN", "USS", "UYI", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XBA", "XBB", "XBC", "XBD", "XCD", "XDR", "XOF", "XPD", "XPF", "XPT", "XTS", "XXX", "YER", "ZAR", "ZMW"])
       return false unless currency_validator.valid?(@currency)
       return false if !@masked_account_number.nil? && @masked_account_number.to_s.length > 4
@@ -234,15 +235,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] masked_account_number Value to be assigned
     def masked_account_number=(masked_account_number)
-      if masked_account_number.nil?
-        fail ArgumentError, "masked_account_number cannot be nil"
-      end
-
-      if masked_account_number.to_s.length > 4
+      if !masked_account_number.nil? && masked_account_number.to_s.length > 4
         fail ArgumentError, 'invalid value for "masked_account_number", the character length must be smaller than or equal to 4.'
       end
 
-      if masked_account_number.to_s.length < 2
+      if !masked_account_number.nil? && masked_account_number.to_s.length < 2
         fail ArgumentError, 'invalid value for "masked_account_number", the character length must be great than or equal to 2.'
       end
 

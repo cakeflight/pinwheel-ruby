@@ -118,7 +118,20 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :id,
+        :name,
+        :type,
+        :fractional_amount_supported,
+        :min_amount,
+        :max_amount,
+        :last_updated,
+        :logo_url,
+        :percentage_supported,
+        :min_percentage,
+        :max_percentage,
+        :amount_supported
+      ])
     end
 
     # Initializes the object
@@ -198,32 +211,12 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @type.nil?
-        invalid_properties.push('invalid value for "type", type cannot be nil.')
-      end
-
-      if @fractional_amount_supported.nil?
-        invalid_properties.push('invalid value for "fractional_amount_supported", fractional_amount_supported cannot be nil.')
-      end
-
       if !@min_amount.nil? && @min_amount <= 0.0
         invalid_properties.push('invalid value for "min_amount", must be greater than 0.0.')
       end
 
       if !@max_amount.nil? && @max_amount <= 0.0
         invalid_properties.push('invalid value for "max_amount", must be greater than 0.0.')
-      end
-
-      if @last_updated.nil?
-        invalid_properties.push('invalid value for "last_updated", last_updated cannot be nil.')
       end
 
       if !@logo_url.nil? && @logo_url.to_s.length > 65536
@@ -234,24 +227,12 @@ module Pinwheel
         invalid_properties.push('invalid value for "logo_url", the character length must be great than or equal to 1.')
       end
 
-      if @percentage_supported.nil?
-        invalid_properties.push('invalid value for "percentage_supported", percentage_supported cannot be nil.')
-      end
-
-      if @min_percentage.nil?
-        invalid_properties.push('invalid value for "min_percentage", min_percentage cannot be nil.')
-      end
-
       if @min_percentage >= 100
         invalid_properties.push('invalid value for "min_percentage", must be smaller than 100.')
       end
 
       if @min_percentage <= 0
         invalid_properties.push('invalid value for "min_percentage", must be greater than 0.')
-      end
-
-      if @max_percentage.nil?
-        invalid_properties.push('invalid value for "max_percentage", max_percentage cannot be nil.')
       end
 
       if @max_percentage >= 100
@@ -266,10 +247,6 @@ module Pinwheel
         invalid_properties.push('invalid value for "supported_jobs", supported_jobs cannot be nil.')
       end
 
-      if @amount_supported.nil?
-        invalid_properties.push('invalid value for "amount_supported", amount_supported cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -277,26 +254,17 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @id.nil?
-      return false if @name.nil?
-      return false if @type.nil?
       type_validator = EnumAttributeValidator.new("String", ["payroll", "time_and_attendance", "tax"])
       return false unless type_validator.valid?(@type)
-      return false if @fractional_amount_supported.nil?
       return false if !@min_amount.nil? && @min_amount <= 0.0
       return false if !@max_amount.nil? && @max_amount <= 0.0
-      return false if @last_updated.nil?
       return false if !@logo_url.nil? && @logo_url.to_s.length > 65536
       return false if !@logo_url.nil? && @logo_url.to_s.length < 1
-      return false if @percentage_supported.nil?
-      return false if @min_percentage.nil?
       return false if @min_percentage >= 100
       return false if @min_percentage <= 0
-      return false if @max_percentage.nil?
       return false if @max_percentage >= 100
       return false if @max_percentage <= 0
       return false if @supported_jobs.nil?
-      return false if @amount_supported.nil?
       true
     end
 
@@ -313,11 +281,7 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] min_amount Value to be assigned
     def min_amount=(min_amount)
-      if min_amount.nil?
-        fail ArgumentError, "min_amount cannot be nil"
-      end
-
-      if min_amount <= 0.0
+      if !min_amount.nil? && min_amount <= 0.0
         fail ArgumentError, 'invalid value for "min_amount", must be greater than 0.0.'
       end
 
@@ -327,11 +291,7 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] max_amount Value to be assigned
     def max_amount=(max_amount)
-      if max_amount.nil?
-        fail ArgumentError, "max_amount cannot be nil"
-      end
-
-      if max_amount <= 0.0
+      if !max_amount.nil? && max_amount <= 0.0
         fail ArgumentError, 'invalid value for "max_amount", must be greater than 0.0.'
       end
 
@@ -341,15 +301,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] logo_url Value to be assigned
     def logo_url=(logo_url)
-      if logo_url.nil?
-        fail ArgumentError, "logo_url cannot be nil"
-      end
-
-      if logo_url.to_s.length > 65536
+      if !logo_url.nil? && logo_url.to_s.length > 65536
         fail ArgumentError, 'invalid value for "logo_url", the character length must be smaller than or equal to 65536.'
       end
 
-      if logo_url.to_s.length < 1
+      if !logo_url.nil? && logo_url.to_s.length < 1
         fail ArgumentError, 'invalid value for "logo_url", the character length must be great than or equal to 1.'
       end
 
@@ -359,15 +315,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] min_percentage Value to be assigned
     def min_percentage=(min_percentage)
-      if min_percentage.nil?
-        fail ArgumentError, "min_percentage cannot be nil"
-      end
-
-      if min_percentage >= 100
+      if !min_percentage.nil? && min_percentage >= 100
         fail ArgumentError, 'invalid value for "min_percentage", must be smaller than 100.'
       end
 
-      if min_percentage <= 0
+      if !min_percentage.nil? && min_percentage <= 0
         fail ArgumentError, 'invalid value for "min_percentage", must be greater than 0.'
       end
 
@@ -377,15 +329,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] max_percentage Value to be assigned
     def max_percentage=(max_percentage)
-      if max_percentage.nil?
-        fail ArgumentError, "max_percentage cannot be nil"
-      end
-
-      if max_percentage >= 100
+      if !max_percentage.nil? && max_percentage >= 100
         fail ArgumentError, 'invalid value for "max_percentage", must be smaller than 100.'
       end
 
-      if max_percentage <= 0
+      if !max_percentage.nil? && max_percentage <= 0
         fail ArgumentError, 'invalid value for "max_percentage", must be greater than 0.'
       end
 

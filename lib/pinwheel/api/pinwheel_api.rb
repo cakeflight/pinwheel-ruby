@@ -39,15 +39,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.auth_v1_admin_token_post ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.auth_v1_admin_token_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'create_admin_token_request' is set
       if @api_client.config.client_side_validation && create_admin_token_request.nil?
         fail ArgumentError, "Missing the required parameter 'create_admin_token_request' when calling PinwheelApi.auth_v1_admin_token_post"
@@ -121,15 +112,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.create_key_v1_admin_api_keys_post ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.create_key_v1_admin_api_keys_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/admin/api_keys"
 
@@ -198,19 +180,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.delete_v1_webhooks_webhook_id_delete ..."
       end
-      # verify the required parameter 'webhook_id' is set
-      if @api_client.config.client_side_validation && webhook_id.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook_id' when calling PinwheelApi.delete_v1_webhooks_webhook_id_delete"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.delete_v1_webhooks_webhook_id_delete"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/webhooks/{webhook_id}".sub("{" + "webhook_id" + "}", CGI.escape(webhook_id.to_s).gsub("%2F", "/"))
 
@@ -273,19 +242,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.disable_monitoring_v1_accounts_account_id_disable_monitoring_post ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.disable_monitoring_v1_accounts_account_id_disable_monitoring_post"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.disable_monitoring_v1_accounts_account_id_disable_monitoring_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/accounts/{account_id}/disable_monitoring".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
 
@@ -346,19 +302,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.disconnect_v1_accounts_account_id_disconnect_post ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.disconnect_v1_accounts_account_id_disconnect_post"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.disconnect_v1_accounts_account_id_disconnect_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/accounts/{account_id}/disconnect".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
 
@@ -418,19 +361,6 @@ module Pinwheel
     def get_account_v1_accounts_account_id_get_with_http_info(account_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_account_v1_accounts_account_id_get ..."
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_account_v1_accounts_account_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_account_v1_accounts_account_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/accounts/{account_id}".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
@@ -493,19 +423,6 @@ module Pinwheel
     def get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get_with_http_info(account_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get ..."
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_direct_deposit_allocations_v1_accounts_account_id_direct_deposit_allocations_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/accounts/{account_id}/direct_deposit_allocations".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
@@ -572,19 +489,6 @@ module Pinwheel
     def get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get_with_http_info(end_user_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get ..."
-      end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_earnings_stream_payouts_v1_end_users_end_user_id_earnings_stream_payouts_get, must be smaller than or equal to 100.'
@@ -658,19 +562,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_employer_v1_employers_employer_id_get ..."
       end
-      # verify the required parameter 'employer_id' is set
-      if @api_client.config.client_side_validation && employer_id.nil?
-        fail ArgumentError, "Missing the required parameter 'employer_id' when calling PinwheelApi.get_employer_v1_employers_employer_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_employer_v1_employers_employer_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/employers/{employer_id}".sub("{" + "employer_id" + "}", CGI.escape(employer_id.to_s).gsub("%2F", "/"))
 
@@ -732,19 +623,6 @@ module Pinwheel
     def get_employment_v1_accounts_account_id_employment_get_with_http_info(account_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_employment_v1_accounts_account_id_employment_get ..."
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_employment_v1_accounts_account_id_employment_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_employment_v1_accounts_account_id_employment_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/accounts/{account_id}/employment".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
@@ -811,19 +689,6 @@ module Pinwheel
     def get_end_user_accounts_v1_end_users_end_user_id_accounts_get_with_http_info(end_user_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_end_user_accounts_v1_end_users_end_user_id_accounts_get ..."
-      end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_end_user_accounts_v1_end_users_end_user_id_accounts_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_end_user_accounts_v1_end_users_end_user_id_accounts_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_end_user_accounts_v1_end_users_end_user_id_accounts_get, must be smaller than or equal to 100.'
@@ -899,23 +764,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_end_user_document_v1_end_users_end_user_id_documents_document_id_get ..."
       end
-      # verify the required parameter 'document_id' is set
-      if @api_client.config.client_side_validation && document_id.nil?
-        fail ArgumentError, "Missing the required parameter 'document_id' when calling PinwheelApi.get_end_user_document_v1_end_users_end_user_id_documents_document_id_get"
-      end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_end_user_document_v1_end_users_end_user_id_documents_document_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_end_user_document_v1_end_users_end_user_id_documents_document_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/end_users/{end_user_id}/documents/{document_id}".sub("{" + "document_id" + "}", CGI.escape(document_id.to_s).gsub("%2F", "/")).sub("{" + "end_user_id" + "}", CGI.escape(end_user_id.to_s).gsub("%2F", "/"))
 
@@ -979,19 +827,6 @@ module Pinwheel
     def get_end_user_documents_v1_end_users_end_user_id_documents_get_with_http_info(end_user_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_end_user_documents_v1_end_users_end_user_id_documents_get ..."
-      end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_end_user_documents_v1_end_users_end_user_id_documents_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_end_user_documents_v1_end_users_end_user_id_documents_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       allowable_values = ["direct_deposit_form"]
       if @api_client.config.client_side_validation && opts[:type] && !allowable_values.include?(opts[:type])
@@ -1060,19 +895,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get ..."
       end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_end_user_verification_reports_voe_v1_end_users_end_user_id_verification_reports_voe_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/end_users/{end_user_id}/verification_reports/voe".sub("{" + "end_user_id" + "}", CGI.escape(end_user_id.to_s).gsub("%2F", "/"))
 
@@ -1134,19 +956,6 @@ module Pinwheel
     def get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get_with_http_info(end_user_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get ..."
-      end
-      # verify the required parameter 'end_user_id' is set
-      if @api_client.config.client_side_validation && end_user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'end_user_id' when calling PinwheelApi.get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_end_user_verification_reports_voie_v1_end_users_end_user_id_verification_reports_voie_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/end_users/{end_user_id}/verification_reports/voie".sub("{" + "end_user_id" + "}", CGI.escape(end_user_id.to_s).gsub("%2F", "/"))
@@ -1210,19 +1019,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_identity_v1_accounts_account_id_identity_get ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_identity_v1_accounts_account_id_identity_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_identity_v1_accounts_account_id_identity_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/accounts/{account_id}/identity".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
 
@@ -1284,19 +1080,6 @@ module Pinwheel
     def get_income_v1_accounts_account_id_income_get_with_http_info(account_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_income_v1_accounts_account_id_income_get ..."
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_income_v1_accounts_account_id_income_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_income_v1_accounts_account_id_income_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/accounts/{account_id}/income".sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
@@ -1374,16 +1157,7 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_jobs_v1_jobs_get ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_jobs_v1_jobs_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
-      allowable_values = ["direct_deposit_switch", "employment", "direct_deposit_allocations", "identity", "tax_forms", "income", "shifts", "paystubs", "direct_deposit_payment"]
+      allowable_values = ["shifts", "direct_deposit_allocations", "tax_forms", "direct_deposit_switch", "identity", "employment", "income", "direct_deposit_payment", "paystubs"]
       if @api_client.config.client_side_validation && opts[:job_types] && !opts[:job_types].all? { |item| allowable_values.include?(item) }
         fail ArgumentError, "invalid value for \"job_types\", must include one of #{allowable_values}"
       end
@@ -1471,23 +1245,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_paystub_v1_accounts_account_id_paystubs_paystub_id_get ..."
       end
-      # verify the required parameter 'paystub_id' is set
-      if @api_client.config.client_side_validation && paystub_id.nil?
-        fail ArgumentError, "Missing the required parameter 'paystub_id' when calling PinwheelApi.get_paystub_v1_accounts_account_id_paystubs_paystub_id_get"
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_paystub_v1_accounts_account_id_paystubs_paystub_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_paystub_v1_accounts_account_id_paystubs_paystub_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/accounts/{account_id}/paystubs/{paystub_id}".sub("{" + "paystub_id" + "}", CGI.escape(paystub_id.to_s).gsub("%2F", "/")).sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
 
@@ -1549,19 +1306,6 @@ module Pinwheel
     def get_platform_v1_platforms_platform_id_get_with_http_info(platform_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_platform_v1_platforms_platform_id_get ..."
-      end
-      # verify the required parameter 'platform_id' is set
-      if @api_client.config.client_side_validation && platform_id.nil?
-        fail ArgumentError, "Missing the required parameter 'platform_id' when calling PinwheelApi.get_platform_v1_platforms_platform_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_platform_v1_platforms_platform_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/platforms/{platform_id}".sub("{" + "platform_id" + "}", CGI.escape(platform_id.to_s).gsub("%2F", "/"))
@@ -1629,23 +1373,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get ..."
       end
-      # verify the required parameter 'tax_form_id' is set
-      if @api_client.config.client_side_validation && tax_form_id.nil?
-        fail ArgumentError, "Missing the required parameter 'tax_form_id' when calling PinwheelApi.get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get"
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_tax_form_v1_accounts_account_id_tax_forms_tax_form_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/accounts/{account_id}/tax_forms/{tax_form_id}".sub("{" + "tax_form_id" + "}", CGI.escape(tax_form_id.to_s).gsub("%2F", "/")).sub("{" + "account_id" + "}", CGI.escape(account_id.to_s).gsub("%2F", "/"))
 
@@ -1712,19 +1439,6 @@ module Pinwheel
     def get_v1_company_connections_company_connection_id_census_get_with_http_info(company_connection_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_company_connections_company_connection_id_census_get ..."
-      end
-      # verify the required parameter 'company_connection_id' is set
-      if @api_client.config.client_side_validation && company_connection_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_connection_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_census_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_company_connections_company_connection_id_census_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_company_connections_company_connection_id_census_get, must be smaller than or equal to 100.'
@@ -1802,19 +1516,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_company_connections_company_connection_id_employments_get ..."
       end
-      # verify the required parameter 'company_connection_id' is set
-      if @api_client.config.client_side_validation && company_connection_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_connection_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_employments_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_company_connections_company_connection_id_employments_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_company_connections_company_connection_id_employments_get, must be smaller than or equal to 100.'
       end
@@ -1887,19 +1588,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_company_connections_company_connection_id_get ..."
       end
-      # verify the required parameter 'company_connection_id' is set
-      if @api_client.config.client_side_validation && company_connection_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_connection_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_company_connections_company_connection_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/company_connections/{company_connection_id}".sub("{" + "company_connection_id" + "}", CGI.escape(company_connection_id.to_s).gsub("%2F", "/"))
 
@@ -1965,19 +1653,6 @@ module Pinwheel
     def get_v1_company_connections_company_connection_id_incomes_get_with_http_info(company_connection_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_company_connections_company_connection_id_incomes_get ..."
-      end
-      # verify the required parameter 'company_connection_id' is set
-      if @api_client.config.client_side_validation && company_connection_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_connection_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_incomes_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_company_connections_company_connection_id_incomes_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_company_connections_company_connection_id_incomes_get, must be smaller than or equal to 100.'
@@ -2061,23 +1736,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get ..."
       end
-      # verify the required parameter 'company_connection_id' is set
-      if @api_client.config.client_side_validation && company_connection_id.nil?
-        fail ArgumentError, "Missing the required parameter 'company_connection_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get"
-      end
-      # verify the required parameter 'employee_external_id' is set
-      if @api_client.config.client_side_validation && employee_external_id.nil?
-        fail ArgumentError, "Missing the required parameter 'employee_external_id' when calling PinwheelApi.get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_company_connections_company_connection_id_paystubs_employee_external_id_get, must be smaller than or equal to 100.'
       end
@@ -2155,15 +1813,6 @@ module Pinwheel
     def get_v1_employers_get_with_http_info(pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_employers_get ..."
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_employers_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_employers_get, must be smaller than or equal to 100.'
@@ -2248,24 +1897,11 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_search_get ..."
       end
-      # verify the required parameter 'q' is set
-      if @api_client.config.client_side_validation && q.nil?
-        fail ArgumentError, "Missing the required parameter 'q' when calling PinwheelApi.get_v1_search_get"
-      end
       if @api_client.config.client_side_validation && q.to_s.length < 1
         fail ArgumentError, 'invalid value for "q" when calling PinwheelApi.get_v1_search_get, the character length must be great than or equal to 1.'
       end
 
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_search_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
-      allowable_values = ["direct_deposit_switch", "employment", "direct_deposit_allocations", "identity", "tax_forms", "income", "shifts", "paystubs", "direct_deposit_payment"]
+      allowable_values = ["shifts", "direct_deposit_allocations", "tax_forms", "direct_deposit_switch", "identity", "employment", "income", "direct_deposit_payment", "paystubs"]
       if @api_client.config.client_side_validation && opts[:supported_jobs] && !opts[:supported_jobs].all? { |item| allowable_values.include?(item) }
         fail ArgumentError, "invalid value for \"supported_jobs\", must include one of #{allowable_values}"
       end
@@ -2355,15 +1991,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_v1_webhooks_get ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_v1_webhooks_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.get_v1_webhooks_get, must be smaller than or equal to 100.'
       end
@@ -2436,19 +2063,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.get_webhook_by_id_v1_webhooks_webhook_id_get ..."
       end
-      # verify the required parameter 'webhook_id' is set
-      if @api_client.config.client_side_validation && webhook_id.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook_id' when calling PinwheelApi.get_webhook_by_id_v1_webhooks_webhook_id_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.get_webhook_by_id_v1_webhooks_webhook_id_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # resource path
       local_var_path = "/webhooks/{webhook_id}".sub("{" + "webhook_id" + "}", CGI.escape(webhook_id.to_s).gsub("%2F", "/"))
 
@@ -2516,15 +2130,6 @@ module Pinwheel
     def list_accounts_v1_accounts_get_with_http_info(pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_accounts_v1_accounts_get ..."
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_accounts_v1_accounts_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_accounts_v1_accounts_get, must be smaller than or equal to 100.'
@@ -2608,15 +2213,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_keys_v1_admin_api_keys_get ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_keys_v1_admin_api_keys_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_keys_v1_admin_api_keys_get, must be smaller than or equal to 100.'
       end
@@ -2697,19 +2293,6 @@ module Pinwheel
     def list_paystubs_v1_accounts_account_id_paystubs_get_with_http_info(account_id, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_paystubs_v1_accounts_account_id_paystubs_get ..."
-      end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.list_paystubs_v1_accounts_account_id_paystubs_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_paystubs_v1_accounts_account_id_paystubs_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_paystubs_v1_accounts_account_id_paystubs_get, must be smaller than or equal to 100.'
@@ -2792,15 +2375,6 @@ module Pinwheel
     def list_platforms_v1_platforms_get_with_http_info(pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_platforms_v1_platforms_get ..."
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_platforms_v1_platforms_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       allowable_values = ["payroll", "time_and_attendance", "tax"]
       if @api_client.config.client_side_validation && opts[:type] && !allowable_values.include?(opts[:type])
@@ -2893,19 +2467,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_shifts_v1_accounts_account_id_shifts_get ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.list_shifts_v1_accounts_account_id_shifts_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_shifts_v1_accounts_account_id_shifts_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_shifts_v1_accounts_account_id_shifts_get, must be smaller than or equal to 100.'
       end
@@ -2990,19 +2551,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_tax_forms_v1_accounts_account_id_tax_forms_get ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.list_tax_forms_v1_accounts_account_id_tax_forms_get"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_tax_forms_v1_accounts_account_id_tax_forms_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_tax_forms_v1_accounts_account_id_tax_forms_get, must be smaller than or equal to 100.'
       end
@@ -3079,15 +2627,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.list_v1_company_connections_get ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.list_v1_company_connections_get"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       if @api_client.config.client_side_validation && !opts[:limit].nil? && opts[:limit] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling PinwheelApi.list_v1_company_connections_get, must be smaller than or equal to 100.'
       end
@@ -3162,19 +2701,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.patch_monitoring_status_v1_sandbox_accounts_account_id_patch ..."
       end
-      # verify the required parameter 'account_id' is set
-      if @api_client.config.client_side_validation && account_id.nil?
-        fail ArgumentError, "Missing the required parameter 'account_id' when calling PinwheelApi.patch_monitoring_status_v1_sandbox_accounts_account_id_patch"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.patch_monitoring_status_v1_sandbox_accounts_account_id_patch"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'payroll_account_patch_monitoring_status' is set
       if @api_client.config.client_side_validation && payroll_account_patch_monitoring_status.nil?
         fail ArgumentError, "Missing the required parameter 'payroll_account_patch_monitoring_status' when calling PinwheelApi.patch_monitoring_status_v1_sandbox_accounts_account_id_patch"
@@ -3245,15 +2771,6 @@ module Pinwheel
     def post_v1_company_connect_link_tokens_post_with_http_info(pinwheel_version, company_connect_link_token_create, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.post_v1_company_connect_link_tokens_post ..."
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.post_v1_company_connect_link_tokens_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # verify the required parameter 'company_connect_link_token_create' is set
       if @api_client.config.client_side_validation && company_connect_link_token_create.nil?
@@ -3326,15 +2843,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.post_v1_company_connections_post ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.post_v1_company_connections_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'company_connection_create' is set
       if @api_client.config.client_side_validation && company_connection_create.nil?
         fail ArgumentError, "Missing the required parameter 'company_connection_create' when calling PinwheelApi.post_v1_company_connections_post"
@@ -3406,15 +2914,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.post_v1_link_tokens_post ..."
       end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.post_v1_link_tokens_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'link_token_create_v20231122' is set
       if @api_client.config.client_side_validation && link_token_create_v20231122.nil?
         fail ArgumentError, "Missing the required parameter 'link_token_create_v20231122' when calling PinwheelApi.post_v1_link_tokens_post"
@@ -3485,15 +2984,6 @@ module Pinwheel
     def post_v1_webhooks_post_with_http_info(pinwheel_version, webhook_create_v20230418, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.post_v1_webhooks_post ..."
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.post_v1_webhooks_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # verify the required parameter 'webhook_create_v20230418' is set
       if @api_client.config.client_side_validation && webhook_create_v20230418.nil?
@@ -3568,19 +3058,6 @@ module Pinwheel
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.put_v1_webhooks_webhook_id_put ..."
       end
-      # verify the required parameter 'webhook_id' is set
-      if @api_client.config.client_side_validation && webhook_id.nil?
-        fail ArgumentError, "Missing the required parameter 'webhook_id' when calling PinwheelApi.put_v1_webhooks_webhook_id_put"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.put_v1_webhooks_webhook_id_put"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
-      end
       # verify the required parameter 'webhook_update' is set
       if @api_client.config.client_side_validation && webhook_update.nil?
         fail ArgumentError, "Missing the required parameter 'webhook_update' when calling PinwheelApi.put_v1_webhooks_webhook_id_put"
@@ -3653,19 +3130,6 @@ module Pinwheel
     def revoke_key_v1_admin_api_keys_api_key_revoke_post_with_http_info(api_key, pinwheel_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PinwheelApi.revoke_key_v1_admin_api_keys_api_key_revoke_post ..."
-      end
-      # verify the required parameter 'api_key' is set
-      if @api_client.config.client_side_validation && api_key.nil?
-        fail ArgumentError, "Missing the required parameter 'api_key' when calling PinwheelApi.revoke_key_v1_admin_api_keys_api_key_revoke_post"
-      end
-      # verify the required parameter 'pinwheel_version' is set
-      if @api_client.config.client_side_validation && pinwheel_version.nil?
-        fail ArgumentError, "Missing the required parameter 'pinwheel_version' when calling PinwheelApi.revoke_key_v1_admin_api_keys_api_key_revoke_post"
-      end
-      # verify enum value
-      allowable_values = ["2023-11-22", "2023-07-18", "2023-04-18", "2022-09-09", "2022-06-22", "2022-03-02"]
-      if @api_client.config.client_side_validation && !allowable_values.include?(pinwheel_version)
-        fail ArgumentError, "invalid value for \"pinwheel_version\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = "/admin/api_keys/{api_key}/revoke".sub("{" + "api_key" + "}", CGI.escape(api_key.to_s).gsub("%2F", "/"))
