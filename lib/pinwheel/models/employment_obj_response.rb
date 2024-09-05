@@ -108,7 +108,17 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :id,
+        :created_at,
+        :updated_at,
+        :account_id,
+        :status,
+        :start_date,
+        :termination_date,
+        :employer_name,
+        :title
+      ])
     end
 
     # Initializes the object
@@ -175,41 +185,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @updated_at.nil?
-        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @employer_name.nil?
-        invalid_properties.push('invalid value for "employer_name", employer_name cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @id.nil?
-      return false if @created_at.nil?
-      return false if @updated_at.nil?
-      return false if @account_id.nil?
       status_validator = EnumAttributeValidator.new("String", ["employed", "terminated", "furloughed"])
       return false unless status_validator.valid?(@status)
-      return false if @employer_name.nil?
       true
     end
 

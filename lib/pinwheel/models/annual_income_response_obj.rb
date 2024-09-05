@@ -67,7 +67,14 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :year,
+        :gross_pay_ytd,
+        :net_pay_ytd,
+        :total_deductions_ytd,
+        :total_reimbursements_ytd,
+        :total_taxes_ytd
+      ])
     end
 
     # Initializes the object
@@ -123,30 +130,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @year.nil?
-        invalid_properties.push('invalid value for "year", year cannot be nil.')
-      end
-
-      if @gross_pay_ytd.nil?
-        invalid_properties.push('invalid value for "gross_pay_ytd", gross_pay_ytd cannot be nil.')
-      end
-
-      if @net_pay_ytd.nil?
-        invalid_properties.push('invalid value for "net_pay_ytd", net_pay_ytd cannot be nil.')
-      end
-
-      if @total_deductions_ytd.nil?
-        invalid_properties.push('invalid value for "total_deductions_ytd", total_deductions_ytd cannot be nil.')
-      end
-
-      if @total_reimbursements_ytd.nil?
-        invalid_properties.push('invalid value for "total_reimbursements_ytd", total_reimbursements_ytd cannot be nil.')
-      end
-
-      if @total_taxes_ytd.nil?
-        invalid_properties.push('invalid value for "total_taxes_ytd", total_taxes_ytd cannot be nil.')
-      end
-
       if @earnings_ytds.nil?
         invalid_properties.push('invalid value for "earnings_ytds", earnings_ytds cannot be nil.')
       end
@@ -158,12 +141,6 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @year.nil?
-      return false if @gross_pay_ytd.nil?
-      return false if @net_pay_ytd.nil?
-      return false if @total_deductions_ytd.nil?
-      return false if @total_reimbursements_ytd.nil?
-      return false if @total_taxes_ytd.nil?
       return false if @earnings_ytds.nil?
       true
     end

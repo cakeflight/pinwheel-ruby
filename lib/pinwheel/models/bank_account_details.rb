@@ -73,7 +73,12 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :name,
+        :type,
+        :routing_number,
+        :account_number
+      ])
     end
 
     # Initializes the object
@@ -165,15 +170,11 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] name Value to be assigned
     def name=(name)
-      if name.nil?
-        fail ArgumentError, "name cannot be nil"
-      end
-
-      if name.to_s.length > 30
+      if !name.nil? && name.to_s.length > 30
         fail ArgumentError, 'invalid value for "name", the character length must be smaller than or equal to 30.'
       end
 
-      if name.to_s.length < 2
+      if !name.nil? && name.to_s.length < 2
         fail ArgumentError, 'invalid value for "name", the character length must be great than or equal to 2.'
       end
 
@@ -193,20 +194,16 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] routing_number Value to be assigned
     def routing_number=(routing_number)
-      if routing_number.nil?
-        fail ArgumentError, "routing_number cannot be nil"
-      end
-
-      if routing_number.to_s.length > 9
+      if !routing_number.nil? && routing_number.to_s.length > 9
         fail ArgumentError, 'invalid value for "routing_number", the character length must be smaller than or equal to 9.'
       end
 
-      if routing_number.to_s.length < 9
+      if !routing_number.nil? && routing_number.to_s.length < 9
         fail ArgumentError, 'invalid value for "routing_number", the character length must be great than or equal to 9.'
       end
 
       pattern = /^[0-9]*$/
-      if !routing_number&.match?(pattern)
+      if !routing_number.nil? && routing_number !~ pattern
         fail ArgumentError, "invalid value for \"routing_number\", must conform to the pattern #{pattern}."
       end
 
@@ -216,16 +213,12 @@ module Pinwheel
     # Custom attribute writer method with validation
     # @param [Object] account_number Value to be assigned
     def account_number=(account_number)
-      if account_number.nil?
-        fail ArgumentError, "account_number cannot be nil"
-      end
-
-      if account_number.to_s.length < 6
+      if !account_number.nil? && account_number.to_s.length < 6
         fail ArgumentError, 'invalid value for "account_number", the character length must be great than or equal to 6.'
       end
 
       pattern = /^[0-9]*$/
-      if !account_number&.match?(pattern)
+      if !account_number.nil? && account_number !~ pattern
         fail ArgumentError, "invalid value for \"account_number\", must conform to the pattern #{pattern}."
       end
 

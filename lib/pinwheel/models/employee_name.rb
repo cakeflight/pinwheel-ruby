@@ -52,7 +52,12 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :first_name,
+        :middle_name,
+        :last_name,
+        :full_name
+      ])
     end
 
     # Initializes the object
@@ -91,19 +96,13 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @full_name.nil?
-        invalid_properties.push('invalid value for "full_name", full_name cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @full_name.nil?
       true
     end
 

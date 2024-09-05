@@ -93,7 +93,13 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :id,
+        :created_at,
+        :account_id,
+        :form_type,
+        :year
+      ])
     end
 
     # Initializes the object
@@ -150,41 +156,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @account_id.nil?
-        invalid_properties.push('invalid value for "account_id", account_id cannot be nil.')
-      end
-
-      if @form_type.nil?
-        invalid_properties.push('invalid value for "form_type", form_type cannot be nil.')
-      end
-
-      if @year.nil?
-        invalid_properties.push('invalid value for "year", year cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @id.nil?
-      return false if @created_at.nil?
-      return false if @account_id.nil?
-      return false if @form_type.nil?
       form_type_validator = EnumAttributeValidator.new("String", ["W-2", "W-2C", "1099-NEC", "1099-MISC", "1099-K", "1040"])
       return false unless form_type_validator.valid?(@form_type)
-      return false if @year.nil?
       true
     end
 

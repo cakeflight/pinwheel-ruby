@@ -98,7 +98,15 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :created_at,
+        :link_token_id,
+        :platform_id,
+        :connected,
+        :monitoring_status,
+        :end_user_id,
+        :id
+      ])
     end
 
     # Initializes the object
@@ -158,30 +166,6 @@ module Pinwheel
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
       invalid_properties = []
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @platform_id.nil?
-        invalid_properties.push('invalid value for "platform_id", platform_id cannot be nil.')
-      end
-
-      if @connected.nil?
-        invalid_properties.push('invalid value for "connected", connected cannot be nil.')
-      end
-
-      if @monitoring_status.nil?
-        invalid_properties.push('invalid value for "monitoring_status", monitoring_status cannot be nil.')
-      end
-
-      if @end_user_id.nil?
-        invalid_properties.push('invalid value for "end_user_id", end_user_id cannot be nil.')
-      end
-
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
       if @data_updated_at.nil?
         invalid_properties.push('invalid value for "data_updated_at", data_updated_at cannot be nil.')
       end
@@ -197,14 +181,8 @@ module Pinwheel
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @created_at.nil?
-      return false if @platform_id.nil?
-      return false if @connected.nil?
-      return false if @monitoring_status.nil?
       monitoring_status_validator = EnumAttributeValidator.new("String", ["active", "degraded", "user_action_required", "customer_disabled", "unavailable"])
       return false unless monitoring_status_validator.valid?(@monitoring_status)
-      return false if @end_user_id.nil?
-      return false if @id.nil?
       return false if @data_updated_at.nil?
       return false if @data_refreshed_at.nil?
       true

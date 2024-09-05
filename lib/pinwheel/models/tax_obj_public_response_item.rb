@@ -68,7 +68,11 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :name,
+        :category,
+        :amount
+      ])
     end
 
     # Initializes the object
@@ -103,31 +107,15 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @category.nil?
-        invalid_properties.push('invalid value for "category", category cannot be nil.')
-      end
-
-      if @amount.nil?
-        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @name.nil?
-      return false if @category.nil?
       category_validator = EnumAttributeValidator.new("String", ["federal_income", "social_security", "medicare", "state_income", "local_income", "other"])
       return false unless category_validator.valid?(@category)
-      return false if @amount.nil?
       true
     end
 

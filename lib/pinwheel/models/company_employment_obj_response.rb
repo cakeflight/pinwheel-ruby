@@ -112,7 +112,19 @@ module Pinwheel
 
     # List of attributes with nullable: true
     def self.openapi_nullable
-      Set.new([])
+      Set.new([
+        :created_at,
+        :employee_external_id,
+        :status,
+        :employment_type,
+        :start_date,
+        :termination_date,
+        :employer_name,
+        :title,
+        :department,
+        :manager_external_id,
+        :class_code
+      ])
     end
 
     # Initializes the object
@@ -183,33 +195,17 @@ module Pinwheel
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       warn "[DEPRECATED] the `list_invalid_properties` method is obsolete"
-      invalid_properties = []
-      if @created_at.nil?
-        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
-      end
-
-      if @employee_external_id.nil?
-        invalid_properties.push('invalid value for "employee_external_id", employee_external_id cannot be nil.')
-      end
-
-      if @employer_name.nil?
-        invalid_properties.push('invalid value for "employer_name", employer_name cannot be nil.')
-      end
-
-      invalid_properties
+      []
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
       warn "[DEPRECATED] the `valid?` method is obsolete"
-      return false if @created_at.nil?
-      return false if @employee_external_id.nil?
       status_validator = EnumAttributeValidator.new("String", ["employed", "terminated", "furloughed"])
       return false unless status_validator.valid?(@status)
       employment_type_validator = EnumAttributeValidator.new("String", ["full_time", "part_time", "seasonal", "temporary", "contractor", "self_employed", "per_diem", "commission"])
       return false unless employment_type_validator.valid?(@employment_type)
-      return false if @employer_name.nil?
       true
     end
 
